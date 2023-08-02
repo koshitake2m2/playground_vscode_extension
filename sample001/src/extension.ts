@@ -18,6 +18,18 @@ export function activate(context: vscode.ExtensionContext) {
       // The code you place here will be executed every time your command is executed
       // Display a message box to the user
       console.log("hello world....");
+      let folderPath = "/Users/koshi/tmp/tmp_next/src/pages";
+      (vscode.workspace.workspaceFolders ?? []).forEach((v) => {
+        console.log(v.uri.fsPath);
+      });
+      // console.log(
+      //   vscode.workspace.fs.readDirectory(root).then((v) => console.log(v))
+      // );
+      // vscode.workspace.fs// console.log(vscode.workspace.rootPath);
+      vscode.workspace.updateWorkspaceFolders(0, null, {
+        uri: vscode.Uri.file(folderPath),
+      });
+
       vscode.window.showInformationMessage("Hello World from sample001!");
     }
   );
